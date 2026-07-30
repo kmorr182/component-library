@@ -1,0 +1,121 @@
+.spinner {
+  position: relative;
+  display: inline-block;
+  color: var(--ruk-color-primary);
+}
+
+.hourglass {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.spinPlain {
+  animation: ruk-spinner-flip 2.4s linear infinite;
+}
+
+.spinSand {
+  animation: ruk-spinner-flip-pause 4s ease-in-out infinite;
+}
+
+@keyframes ruk-spinner-flip {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Flips quickly, then holds upside-down while the sand (below) drains, then loops. */
+@keyframes ruk-spinner-flip-pause {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinPlain {
+    animation-duration: 4.8s;
+  }
+  .spinSand {
+    animation-duration: 8s;
+  }
+  .sandTop,
+  .sandBottom {
+    animation-duration: 8s;
+  }
+}
+
+.glassSolid {
+  fill: currentColor;
+}
+
+.glassOutline {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+.glassBackground {
+  fill: var(--ruk-color-star-active);
+}
+
+.sandTop,
+.sandBottom {
+  fill: white;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.sandTop {
+  animation-name: ruk-spinner-sand-drain;
+}
+
+.sandBottom {
+  animation-name: ruk-spinner-sand-fill;
+}
+
+/* Stays full during the quick flip (0-10%), then drains while the glass holds still. */
+@keyframes ruk-spinner-sand-drain {
+  0% {
+    transform: scaleY(1);
+  }
+  10% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes ruk-spinner-sand-fill {
+  0% {
+    transform: scaleY(0);
+  }
+  10% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

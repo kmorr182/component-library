@@ -1,0 +1,186 @@
+:root {
+  /* Color */
+  --ruk-color-primary: #1c3664;
+  --ruk-color-primary-hover: #254883;
+  --ruk-color-primary-active: #132544;
+  --ruk-color-on-primary: #ffffff;
+
+  --ruk-color-danger: #dc2626;
+  --ruk-color-danger-hover: #b91c1c;
+
+  --ruk-color-bg: #ffffff;
+  --ruk-color-surface: #f3f6fc;
+  --ruk-color-border: #c7d2e6;
+  --ruk-color-border-hover: #879dc5;
+  --ruk-color-text: #0f172a;
+  --ruk-color-text-muted: #64748b;
+  --ruk-color-disabled-bg: #dee5f2;
+  --ruk-color-disabled-text: #879dc5;
+  --ruk-color-star: #cbd5e1;
+  --ruk-color-star-active: #8c6a53;
+  --ruk-color-focus-ring: #71c9be;
+
+  /* Typography */
+  --ruk-font-family: 'Atkinson Hyperlegible Next', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+    sans-serif;
+
+  /* Type scale. xs-lg exist mainly for compact in-component text (helper/error text,
+     control labels); xl and up are for headings and display text. */
+  --ruk-font-size-xs: 0.75rem; /* 12px */
+  --ruk-font-size-sm: 0.8125rem; /* 13px */
+  --ruk-font-size-md: 0.9375rem; /* 15px - body default */
+  --ruk-font-size-lg: 1.0625rem; /* 17px */
+  --ruk-font-size-xl: 1.25rem; /* 20px */
+  --ruk-font-size-2xl: 1.5rem; /* 24px */
+  --ruk-font-size-3xl: 1.875rem; /* 30px */
+  --ruk-font-size-4xl: 2.25rem; /* 36px */
+  --ruk-font-size-5xl: 3rem; /* 48px */
+
+  --ruk-line-height-tight: 1.15;
+  --ruk-line-height-snug: 1.35;
+  --ruk-line-height-normal: 1.5;
+  --ruk-line-height-relaxed: 1.65;
+
+  --ruk-font-weight-extralight: 200;
+  --ruk-font-weight-regular: 400;
+  --ruk-font-weight-semibold: 600;
+
+  /* Sizing / shape */
+  --ruk-radius-sm: 4px;
+  --ruk-radius-md: 6px;
+  --ruk-radius-pill: 999px;
+  --ruk-spacing-1: 4px;
+  --ruk-spacing-2: 8px;
+  --ruk-spacing-3: 12px;
+  --ruk-spacing-4: 16px;
+  --ruk-focus-ring-width: 3px;
+
+  /* Motion */
+  --ruk-transition-fast: 120ms ease;
+}
+
+/* Zero-config fallback: honor OS-level preferences when no explicit
+   data-ruk-theme is set (e.g. no <ThemeProvider> in the tree). Explicit
+   [data-ruk-theme] blocks below always win over these, since ThemeProvider
+   applies the attribute on a descendant element. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ruk-color-primary: #71c9be;
+    --ruk-color-primary-hover: #98d8d0;
+    --ruk-color-primary-active: #4ebcae;
+    --ruk-color-on-primary: #0b1220;
+
+    --ruk-color-danger: #f87171;
+    --ruk-color-danger-hover: #fca5a5;
+
+    --ruk-color-bg: #0f172a;
+    --ruk-color-surface: #1e293b;
+    --ruk-color-border: #2d3e5d;
+    --ruk-color-border-hover: #3e5172;
+    --ruk-color-text: #f1f5f9;
+    --ruk-color-text-muted: #94a3b8;
+    --ruk-color-disabled-bg: #1e293b;
+    --ruk-color-disabled-text: #3e5172;
+    --ruk-color-star: #334155;
+    --ruk-color-star-active: #eced8f;
+    --ruk-color-focus-ring: #98d8d0;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --ruk-color-primary: #0b1628;
+    --ruk-color-primary-hover: #122340;
+    --ruk-color-primary-active: #0b1628;
+    --ruk-color-on-primary: #ffffff;
+
+    --ruk-color-danger: #990000;
+    --ruk-color-danger-hover: #7a0000;
+
+    --ruk-color-bg: #ffffff;
+    --ruk-color-surface: #ffffff;
+    --ruk-color-border: #000000;
+    --ruk-color-border-hover: #000000;
+    --ruk-color-text: #000000;
+    --ruk-color-text-muted: #333333;
+    --ruk-color-disabled-bg: #d4d4d4;
+    --ruk-color-disabled-text: #4d4d4d;
+    --ruk-color-star: #767676;
+    --ruk-color-star-active: #a15c00;
+    --ruk-color-focus-ring: #000000;
+    --ruk-focus-ring-width: 4px;
+  }
+}
+
+/* Explicit themes, applied via data-ruk-theme="..." (see <ThemeProvider>).
+   These take precedence over the OS-preference media queries above because
+   they're set directly on the element ThemeProvider renders, and CSS custom
+   properties resolve to the nearest declaration, not by specificity contest. */
+[data-ruk-theme='light'] {
+  --ruk-color-primary: #1c3664;
+  --ruk-color-primary-hover: #254883;
+  --ruk-color-primary-active: #132544;
+  --ruk-color-on-primary: #ffffff;
+
+  --ruk-color-danger: #dc2626;
+  --ruk-color-danger-hover: #b91c1c;
+
+  --ruk-color-bg: #ffffff;
+  --ruk-color-surface: #f3f6fc;
+  --ruk-color-border: #c7d2e6;
+  --ruk-color-border-hover: #879dc5;
+  --ruk-color-text: #0f172a;
+  --ruk-color-text-muted: #64748b;
+  --ruk-color-disabled-bg: #dee5f2;
+  --ruk-color-disabled-text: #879dc5;
+  --ruk-color-star: #cbd5e1;
+  --ruk-color-star-active: #8c6a53;
+  --ruk-color-focus-ring: #71c9be;
+  --ruk-focus-ring-width: 3px;
+}
+
+[data-ruk-theme='dark'] {
+  --ruk-color-primary: #71c9be;
+  --ruk-color-primary-hover: #98d8d0;
+  --ruk-color-primary-active: #4ebcae;
+  --ruk-color-on-primary: #0b1220;
+
+  --ruk-color-danger: #f87171;
+  --ruk-color-danger-hover: #fca5a5;
+
+  --ruk-color-bg: #0f172a;
+  --ruk-color-surface: #1e293b;
+  --ruk-color-border: #2d3e5d;
+  --ruk-color-border-hover: #3e5172;
+  --ruk-color-text: #f1f5f9;
+  --ruk-color-text-muted: #94a3b8;
+  --ruk-color-disabled-bg: #1e293b;
+  --ruk-color-disabled-text: #3e5172;
+  --ruk-color-star: #334155;
+  --ruk-color-star-active: #eced8f;
+  --ruk-color-focus-ring: #98d8d0;
+  --ruk-focus-ring-width: 3px;
+}
+
+[data-ruk-theme='high-contrast'] {
+  --ruk-color-primary: #0b1628;
+  --ruk-color-primary-hover: #122340;
+  --ruk-color-primary-active: #0b1628;
+  --ruk-color-on-primary: #ffffff;
+
+  --ruk-color-danger: #990000;
+  --ruk-color-danger-hover: #7a0000;
+
+  --ruk-color-bg: #ffffff;
+  --ruk-color-surface: #ffffff;
+  --ruk-color-border: #000000;
+  --ruk-color-border-hover: #000000;
+  --ruk-color-text: #000000;
+  --ruk-color-text-muted: #333333;
+  --ruk-color-disabled-bg: #d4d4d4;
+  --ruk-color-disabled-text: #4d4d4d;
+  --ruk-color-star: #767676;
+  --ruk-color-star-active: #a15c00;
+  --ruk-color-focus-ring: #000000;
+  --ruk-focus-ring-width: 4px;
+}

@@ -1,0 +1,44 @@
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+.content {
+  position: absolute;
+  z-index: 50;
+  min-width: 200px;
+  max-width: 320px;
+  padding: var(--ruk-spacing-3);
+  border-radius: var(--ruk-radius-md);
+  background-color: var(--ruk-color-bg);
+  border: 1px solid var(--ruk-color-border);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.16);
+  color: var(--ruk-color-text);
+  font-family: var(--ruk-font-family);
+  font-size: var(--ruk-font-size-sm);
+  line-height: var(--ruk-line-height-normal);
+}
+
+.bottom {
+  top: calc(100% + var(--ruk-spacing-2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.top {
+  bottom: calc(100% + var(--ruk-spacing-2));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left {
+  right: calc(100% + var(--ruk-spacing-2));
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.right {
+  left: calc(100% + var(--ruk-spacing-2));
+  top: 50%;
+  transform: translateY(-50%);
+}

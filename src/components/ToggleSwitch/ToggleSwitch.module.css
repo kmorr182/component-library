@@ -1,0 +1,116 @@
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ruk-spacing-2);
+  font-family: var(--ruk-font-family);
+  cursor: pointer;
+  user-select: none;
+}
+
+.wrapper.disabled {
+  cursor: not-allowed;
+}
+
+/* Visually hidden but still focusable/clickable native checkbox. */
+.input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.track {
+  --ruk-toggle-width: 52px;
+  --ruk-toggle-height: 28px;
+  --ruk-toggle-thumb: 22px;
+  --ruk-toggle-padding: 3px;
+
+  position: relative;
+  flex-shrink: 0;
+  display: inline-block;
+  width: var(--ruk-toggle-width);
+  height: var(--ruk-toggle-height);
+  border-radius: var(--ruk-radius-pill);
+  background-color: var(--ruk-color-border);
+  transition: background-color var(--ruk-transition-fast);
+}
+
+.track.sm {
+  --ruk-toggle-width: 40px;
+  --ruk-toggle-height: 22px;
+  --ruk-toggle-thumb: 16px;
+}
+
+.thumb {
+  position: absolute;
+  top: var(--ruk-toggle-padding);
+  left: var(--ruk-toggle-padding);
+  width: var(--ruk-toggle-thumb);
+  height: var(--ruk-toggle-thumb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--ruk-color-bg);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  transition: transform var(--ruk-transition-fast);
+}
+
+.thumbIcon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: opacity var(--ruk-transition-fast);
+}
+
+.iconOff {
+  opacity: 1;
+  color: var(--ruk-color-text-muted);
+}
+
+.iconOn {
+  opacity: 0;
+  color: var(--ruk-color-primary);
+}
+
+.input:checked + .track .iconOff {
+  opacity: 0;
+}
+
+.input:checked + .track .iconOn {
+  opacity: 1;
+}
+
+.input:checked + .track {
+  background-color: var(--ruk-color-primary);
+}
+
+.input:checked + .track .thumb {
+  transform: translateX(
+    calc(var(--ruk-toggle-width) - var(--ruk-toggle-thumb) - 2 * var(--ruk-toggle-padding))
+  );
+}
+
+.input:focus-visible + .track {
+  outline: none;
+  box-shadow: 0 0 0 var(--ruk-focus-ring-width, 3px) var(--ruk-color-focus-ring);
+}
+
+.input:disabled + .track {
+  background-color: var(--ruk-color-disabled-bg);
+}
+
+.input:disabled ~ .label {
+  color: var(--ruk-color-disabled-text);
+}
+
+.label {
+  font-size: var(--ruk-font-size-md);
+  font-weight: 500;
+  color: var(--ruk-color-text);
+}

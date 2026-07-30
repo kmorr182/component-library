@@ -1,0 +1,110 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ruk-spacing-2);
+  font-family: var(--ruk-font-family);
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--ruk-radius-pill);
+  border: 1px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    background-color var(--ruk-transition-fast),
+    border-color var(--ruk-transition-fast),
+    color var(--ruk-transition-fast);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--ruk-focus-ring-width, 3px) var(--ruk-color-focus-ring);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  background-color: var(--ruk-color-disabled-bg);
+  border-color: var(--ruk-color-disabled-bg);
+  color: var(--ruk-color-disabled-text);
+}
+
+/* Sizes */
+.sm {
+  height: 32px;
+  padding: 0 var(--ruk-spacing-3);
+  font-size: var(--ruk-font-size-sm);
+}
+
+.md {
+  height: 40px;
+  padding: 0 var(--ruk-spacing-4);
+  font-size: var(--ruk-font-size-md);
+}
+
+.lg {
+  height: 48px;
+  padding: 0 20px;
+  font-size: var(--ruk-font-size-lg);
+}
+
+/* Variants */
+.primary {
+  background-color: var(--ruk-color-primary);
+  border-color: var(--ruk-color-primary);
+  color: var(--ruk-color-on-primary);
+}
+
+.primary:not(:disabled):hover {
+  background-color: var(--ruk-color-primary-hover);
+  border-color: var(--ruk-color-primary-hover);
+}
+
+.primary:not(:disabled):active {
+  background-color: var(--ruk-color-primary-active);
+  border-color: var(--ruk-color-primary-active);
+}
+
+.secondary {
+  background-color: var(--ruk-color-surface);
+  border-color: var(--ruk-color-border);
+  color: var(--ruk-color-text);
+}
+
+.secondary:not(:disabled):hover {
+  border-color: var(--ruk-color-border-hover);
+}
+
+.outline {
+  background-color: transparent;
+  border-color: var(--ruk-color-primary);
+  color: var(--ruk-color-primary);
+}
+
+.outline:not(:disabled):hover {
+  background-color: var(--ruk-color-surface);
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+  color: var(--ruk-color-primary);
+}
+
+.ghost:not(:disabled):hover {
+  background-color: var(--ruk-color-surface);
+}
+
+.danger {
+  background-color: var(--ruk-color-danger);
+  border-color: var(--ruk-color-danger);
+  color: var(--ruk-color-on-primary);
+}
+
+.danger:not(:disabled):hover {
+  background-color: var(--ruk-color-danger-hover);
+  border-color: var(--ruk-color-danger-hover);
+}
+
+.fullWidth {
+  width: 100%;
+}
