@@ -8,7 +8,7 @@ const meta = {
   component: MapMarker,
   tags: ['autodocs'],
   args: {
-    label: 'Rest Rumor - Downtown',
+    label: 'Downtown Location',
     onClick: fn(),
   },
 } satisfies Meta<typeof MapMarker>
@@ -53,12 +53,9 @@ export const OnAMap: Story = {
 export const WithPopover: Story = {
   name: 'With a Popover',
   render: () => (
-    <Popover
-      trigger={<MapMarker label="Rest Rumor - Downtown" />}
-      placement="top"
-    >
+    <Popover trigger={<MapMarker label="Downtown Location" />}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
-        <strong>Rest Rumor - Downtown</strong>
+        <strong>Downtown Location</strong>
         <span style={{ color: 'var(--ruk-color-text-muted)' }}>Open now · 24 hr</span>
       </div>
     </Popover>

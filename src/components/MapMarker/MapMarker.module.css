@@ -26,10 +26,10 @@
   overflow: visible;
 }
 
-.icon path {
+.dark {
+  fill: var(--ruk-color-text);
+}
+
+.light {
   fill: var(--ruk-color-bg);
-  stroke: var(--ruk-color-text);
-  stroke-width: 9;
-  stroke-linejoin: round;
-  stroke-miterlimit: 10;
 }

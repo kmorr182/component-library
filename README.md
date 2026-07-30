@@ -1,4 +1,4 @@
-# react-ui-kit
+# component-library
 
 A small React component library: **Button**, **Input**, **Icon**, **ToggleSwitch**, **Rating**, **Spinner**, **Skeleton**, **Popover**, and **MapMarker**.
 
@@ -23,12 +23,12 @@ npm run lint
 After building (or publishing) the package:
 
 ```bash
-npm install react-ui-kit
+npm install component-library
 ```
 
 ```tsx
-import { Button, Input, Icon, ToggleSwitch, Rating, Spinner, Skeleton, Popover, MapMarker } from 'react-ui-kit'
-import 'react-ui-kit/styles.css'
+import { Button, Input, Icon, ToggleSwitch, Rating, Spinner, Skeleton, Popover, MapMarker } from 'component-library'
+import 'component-library/styles.css'
 ```
 
 The stylesheet import is required once, anywhere in your app's entry point — it defines the
@@ -49,7 +49,7 @@ The library ships three built-in themes — `light`, `dark`, and `high-contrast`
 `<ThemeProvider>` to apply one:
 
 ```tsx
-import { ThemeProvider, useTheme } from 'react-ui-kit'
+import { ThemeProvider, useTheme } from 'component-library'
 
 function App() {
   return (
@@ -115,7 +115,7 @@ just these three). See the `Foundations/Typography` page in Storybook for a live
 - **Rating** — 5-star rating (`max` to change the count). Interactive by default (`value`/`onChange` or `defaultValue`, keyboard-accessible radio group); pass `readOnly` for a static display that also supports fractional values (e.g. `value={3.5}`).
 - **Spinner** — a rotating hourglass (`size`, `label` for the screen-reader-only status text). `variant="plain"` (default) spins continuously; `variant="sand"` flips, pauses, and drains sand from the top bulb to the bottom in sync. Colored via `currentColor`/`--ruk-color-primary` (sand stays its own brown/white regardless). Respects `prefers-reduced-motion` by slowing rather than removing the animation.
 - **Skeleton** — a shimmering placeholder block. `variant` (`text` | `circular` | `rectangular`), `width`/`height`. Compose several to build loading states for cards, lists, avatars, etc. — see the `CardPlaceholder` story.
-- **Popover** — a generic trigger + floating content primitive. `trigger` (a single ref-forwarding element, e.g. `<MapMarker />` or `<Button />`), `placement` (`top` | `bottom` | `left` | `right`), controlled (`open`/`onOpenChange`) or uncontrolled (`defaultOpen`). Closes on outside click or Escape (returning focus to the trigger).
+- **Popover** — a generic trigger + floating content primitive. `trigger` (a single ref-forwarding element, e.g. `<MapMarker />` or `<Button />`), controlled (`open`/`onOpenChange`) or uncontrolled (`defaultOpen`). No `placement` prop to set — it measures the space around the trigger against the viewport and opens toward whichever side (top/bottom/left/right) has the most room, clamped so it always stays fully on-screen. Renders into a `document.body` portal. Closes on outside click or Escape (returning focus to the trigger).
 - **MapMarker** — a clickable pin-shaped marker (`label` for its accessible name, `size`). Renders as a `<button>` with a forwarded ref, so it works directly as a `Popover` `trigger`: `<Popover trigger={<MapMarker label="..." />}>...</Popover>`.
 
 See each component's Storybook stories (`src/components/*/*.stories.tsx`) for live, interactive examples.

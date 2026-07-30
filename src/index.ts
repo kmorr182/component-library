@@ -23,7 +23,7 @@ export { Skeleton } from './components/Skeleton'
 export type { SkeletonProps, SkeletonVariant } from './components/Skeleton'
 
 export { Popover } from './components/Popover'
-export type { PopoverProps, PopoverPlacement } from './components/Popover'
+export type { PopoverProps } from './components/Popover'
 
 export { MapMarker } from './components/MapMarker'
 export type { MapMarkerProps } from './components/MapMarker'

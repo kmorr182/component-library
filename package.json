@@ -1,6 +1,6 @@
 {
-  "name": "react-ui-kit",
-  "description": "A small React component library: Button, Input, Icon, ToggleSwitch, and Rating.",
+  "name": "component-library",
+  "description": "A small React component library: Button, Input, Icon, ToggleSwitch, Rating, Spinner, Skeleton, Popover, and MapMarker.",
   "private": false,
   "version": "0.1.0",
   "type": "module",
