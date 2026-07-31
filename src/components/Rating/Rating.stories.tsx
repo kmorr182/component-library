@@ -51,3 +51,22 @@ export const Controlled: Story = {
     return <ControlledExample />
   },
 }
+
+export const QuarterStarPrecision: Story = {
+  args: { defaultValue: 3.25, step: 0.25 },
+}
+
+export const ControlledDecimal: Story = {
+  render: () => {
+    function ControlledDecimalExample() {
+      const [value, setValue] = useState(3.5)
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <Rating value={value} onChange={setValue} step={0.25} />
+          <span>Selected: {value}</span>
+        </div>
+      )
+    }
+    return <ControlledDecimalExample />
+  },
+}

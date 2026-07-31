@@ -15,7 +15,7 @@
 }
 
 .spinSand {
-  animation: ruk-spinner-flip-pause 4s ease-in-out infinite;
+  animation: ruk-spinner-flip-pause 5s linear infinite;
 }
 
 @keyframes ruk-spinner-flip {
@@ -24,12 +24,13 @@
   }
 }
 
-/* Flips quickly, then holds upside-down while the sand (below) drains, then loops. */
+/* Flips at an easy pace, easing out into the hold while the sand (below) drains, then loops. */
 @keyframes ruk-spinner-flip-pause {
   0% {
     transform: rotate(0deg);
+    animation-timing-function: ease-out;
   }
-  10% {
+  25% {
     transform: rotate(180deg);
   }
   100% {
@@ -42,11 +43,11 @@
     animation-duration: 4.8s;
   }
   .spinSand {
-    animation-duration: 8s;
+    animation-duration: 10s;
   }
   .sandTop,
   .sandBottom {
-    animation-duration: 8s;
+    animation-duration: 10s;
   }
 }
 
@@ -70,7 +71,7 @@
   fill: white;
   transform-box: fill-box;
   transform-origin: 50% 100%;
-  animation-duration: 4s;
+  animation-duration: 5s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -83,12 +84,12 @@
   animation-name: ruk-spinner-sand-fill;
 }
 
-/* Stays full during the quick flip (0-10%), then drains while the glass holds still. */
+/* Stays full during the flip (0-25%), then drains while the glass holds still. */
 @keyframes ruk-spinner-sand-drain {
   0% {
     transform: scaleY(1);
   }
-  10% {
+  25% {
     transform: scaleY(1);
   }
   100% {
@@ -100,7 +101,7 @@
   0% {
     transform: scaleY(0);
   }
-  10% {
+  25% {
     transform: scaleY(0);
   }
   100% {
