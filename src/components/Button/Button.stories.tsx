@@ -13,7 +13,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['primary', 'secondary', 'outline', 'ghost', 'danger'],
+      options: ['primary', 'outline', 'ghost', 'danger'],
     },
     size: {
       control: 'select',
@@ -29,9 +29,6 @@ export const Primary: Story = {
   args: { variant: 'primary' },
 }
 
-export const Secondary: Story = {
-  args: { variant: 'secondary' },
-}
 
 export const Outline: Story = {
   args: { variant: 'outline' },

@@ -1,0 +1,336 @@
+# Button
+
+## Overview
+
+Buttons allow users to perform actions within an interface. They communicate the most important actions available on a page and provide a clear way for users to submit information, confirm choices, navigate workflows, or trigger system events.
+
+Buttons should be easy to recognize, consistently styled, and used with intention. Selecting the appropriate button variant helps establish a clear visual hierarchy and guides users toward the desired action.
+
+---
+
+## When to Use
+
+Use a button when the user needs to perform an action.
+
+Common use cases include:
+
+* Submitting a form
+* Saving or updating information
+* Starting or completing a workflow
+* Opening a modal, drawer, or popover
+* Triggering a download
+* Confirming or canceling an action
+* Navigating to another page when the interaction behaves like an application action rather than a traditional hyperlink
+
+---
+
+## When Not to Use
+
+Do not use a button when another interface element better communicates the intended interaction.
+
+Avoid buttons for:
+
+* Simple text navigation between pages (use a Link instead)
+* Displaying information without an associated action
+* Decorative elements
+* Actions that occur automatically
+* Multiple equally emphasized actions within the same section
+
+---
+
+## Best Practices
+
+### Do
+
+* Write concise, action-oriented labels.
+* Start labels with verbs whenever possible.
+* Limit each page or section to one Primary Button.
+* Use Outline or Ghost variants for supporting actions.
+* Keep button placement consistent throughout the application.
+* Use destructive styling only for irreversible actions.
+* Disable buttons only when an action is temporarily unavailable, and explain why whenever possible.
+
+### Don't
+
+* Use vague labels such as "Click Here" or "Submit" without context.
+* Place several Primary Buttons next to one another.
+* Use color alone to communicate meaning.
+* Create custom button styles outside the design system.
+* Use buttons as containers for unrelated content.
+
+---
+
+## Accessibility Standards
+
+Buttons must be fully operable by all users, regardless of input method or assistive technology.
+
+### Keyboard
+
+* Buttons must receive keyboard focus using the Tab key.
+* Pressing **Enter** or **Space** activates the button.
+* Keyboard focus must remain visible at all times.
+* Focus order should follow the visual layout of the page.
+
+### Screen Readers
+
+* Every button must have an accessible name.
+* Icon-only buttons require an accessible label (`aria-label` or equivalent).
+* Decorative icons should be hidden from assistive technology.
+* Buttons should announce disabled state when appropriate.
+
+### Color & Contrast
+
+* Button text must maintain a minimum contrast ratio of **4.5:1** against its background.
+* Focus indicators should meet a minimum contrast ratio of **3:1** against adjacent colors.
+* Hover and active states should remain distinguishable for users with low vision.
+* Never rely solely on color to communicate button state.
+
+### Touch Targets
+
+* Interactive area should be at least **24 × 24 px**.
+* A minimum touch target of **44 × 44 px** is recommended for touch interfaces.
+
+### WCAG Compliance
+
+Buttons should meet the requirements of **WCAG 2.2 Level AA**, including:
+
+* Keyboard Accessible
+* Focus Visible
+* Focus Appearance
+* Target Size (Minimum)
+* Name, Role, Value
+* Use of Color
+* Contrast (Minimum)
+
+---
+
+## Anatomy
+
+A button consists of the following elements:
+
+1. Container
+2. Label
+3. Leading Icon (optional)
+4. Trailing Icon (optional)
+5. Focus Indicator
+6. Loading Indicator (optional)
+
+---
+
+## Variants
+
+### Primary
+
+Used for the most important action on a page.
+
+Examples:
+
+* Save
+* Continue
+* Submit Order
+
+---
+
+### Secondary
+
+Used for supporting actions that are less prominent than the primary action.
+
+Examples:
+
+* Cancel
+* Edit
+* Learn More
+
+---
+
+### Ghost
+
+Used for lower-emphasis actions that should remain available without competing for attention.
+
+Examples:
+
+* View Details
+* Skip
+* Dismiss
+
+---
+
+### Danger
+
+Used for irreversible actions.
+
+Examples:
+
+* Delete Account
+* Remove User
+* Archive Permanently
+
+---
+
+### Button with Icon
+
+Used when an icon can support the button text. Never use an icon without supporting text.
+
+Examples:
+
+* Search
+* Close
+* Settings
+* Favorite
+
+Every icon-only button must include an accessible label.
+
+---
+
+## States
+
+Buttons should support the following interaction states:
+
+* Default
+* Hover
+* Focus
+* Active (Pressed)
+* Disabled
+* Loading
+
+Each state should remain visually distinct while preserving accessibility requirements.
+
+---
+
+## Behavior
+
+Buttons should respond immediately to user interaction.
+
+### Interaction
+
+* Trigger the associated action once per activation.
+* Prevent duplicate submissions while processing.
+* Display a loading state when an operation requires noticeable time.
+* Preserve layout during loading.
+
+### Responsive Behavior
+
+Buttons should:
+
+* Resize gracefully across screen sizes.
+* Contain all text. Support wrapping when necessary.
+* Maintain consistent spacing within layouts.
+* Expand to full width only when appropriate for mobile experiences.
+
+---
+
+## Content Guidelines
+
+Button labels should clearly communicate the expected outcome.
+
+### Writing Guidelines
+
+* Begin with a verb whenever practical.
+* Use kind verbiage.
+* Keep labels short and scannable.
+* Prefer specific actions over generic wording.
+
+Good Examples
+
+* Save Changes
+* Add User
+* Continue
+* Download Report
+* Send Invitation
+
+Poor Examples
+
+* Click Here
+* OK
+* Do It
+* Submit
+* Yes
+
+Avoid punctuation unless it is part of the action itself.
+
+---
+
+## Design Specifications
+TODO: Add Figma designs
+
+Document:
+
+* Height 
+** small, 32px 
+** medium, 40px
+** large, 48px
+
+* Horizontal padding
+** small, 12px
+** medium, 16px
+** large, 20px
+
+* Vertical padding
+** 10px
+
+* Corner radius
+** 999px
+
+* Typography
+* Font weight
+** 600
+
+* Icon size
+** small,  0.8125rem
+** medium, 0.9375rem
+** large, 1.0625rem
+
+* Icon spacing
+TODO: Add icon option to `<Button />` component.
+
+* Border width
+** 1px solid
+
+* Colors
+** Use theme colors
+** Primary variant = Background Primary color
+** Outline variant = Background Transparent, border Primary color
+
+* Motion duration
+** 120ms ease
+
+* Focus ring styling
+** border 3px
+** color Secondary color
+
+---
+
+## Developer Notes
+### Implementation Guidelines
+
+* Support both mouse and keyboard interaction.
+* Prevent duplicate requests during loading.
+* Maintain visible focus indicators.
+* Preserve disabled semantics.
+* Ensure button width accommodates translated text.
+* Support localization and left-to-Right (LTR) layouts.
+* Icons should not replace descriptive text.
+
+---
+
+## Related Components
+
+* Link
+* Icon
+
+---
+
+## Design Checklist
+
+Before publishing a screen, verify that:
+
+* Only one Primary Button exists within a section.
+* Button labels clearly describe the action.
+* Appropriate button variants are used consistently.
+* Keyboard interaction functions correctly.
+* Focus indicators are visible.
+* Contrast requirements are met.
+* Loading and disabled states are implemented.
+* Touch target requirements are satisfied.
+* Screen readers announce the button correctly.
+* The button behaves consistently across desktop, tablet, and mobile devices.

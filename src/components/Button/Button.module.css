@@ -31,19 +31,19 @@
 /* Sizes */
 .sm {
   height: 32px;
-  padding: 0 var(--ruk-spacing-3);
+  padding: 10px 12px;
   font-size: var(--ruk-font-size-sm);
 }
 
 .md {
   height: 40px;
-  padding: 0 var(--ruk-spacing-4);
+  padding: 10px 16px;
   font-size: var(--ruk-font-size-md);
 }
 
 .lg {
   height: 48px;
-  padding: 0 20px;
+  padding: 10px 20px;
   font-size: var(--ruk-font-size-lg);
 }
 
@@ -62,16 +62,6 @@
 .primary:not(:disabled):active {
   background-color: var(--ruk-color-primary-active);
   border-color: var(--ruk-color-primary-active);
-}
-
-.secondary {
-  background-color: var(--ruk-color-surface);
-  border-color: var(--ruk-color-border);
-  color: var(--ruk-color-text);
-}
-
-.secondary:not(:disabled):hover {
-  border-color: var(--ruk-color-border-hover);
 }
 
 .outline {

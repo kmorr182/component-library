@@ -8,6 +8,9 @@
   --ruk-color-danger: #dc2626;
   --ruk-color-danger-hover: #b91c1c;
 
+  --ruk-color-success: #15803d;
+  --ruk-color-success-hover: #166534;
+
   --ruk-color-bg: #ffffff;
   --ruk-color-surface: #f3f6fc;
   --ruk-color-border: #c7d2e6;
@@ -73,6 +76,9 @@
     --ruk-color-danger: #f87171;
     --ruk-color-danger-hover: #fca5a5;
 
+    --ruk-color-success: #22c55e;
+    --ruk-color-success-hover: #4ade80;
+
     --ruk-color-bg: #0f172a;
     --ruk-color-surface: #1e293b;
     --ruk-color-border: #2d3e5d;
@@ -96,6 +102,9 @@
 
     --ruk-color-danger: #990000;
     --ruk-color-danger-hover: #7a0000;
+
+    --ruk-color-success: #14532d;
+    --ruk-color-success-hover: #052e16;
 
     --ruk-color-bg: #ffffff;
     --ruk-color-surface: #ffffff;
@@ -125,6 +134,9 @@
   --ruk-color-danger: #dc2626;
   --ruk-color-danger-hover: #b91c1c;
 
+  --ruk-color-success: #15803d;
+  --ruk-color-success-hover: #166534;
+
   --ruk-color-bg: #ffffff;
   --ruk-color-surface: #f3f6fc;
   --ruk-color-border: #c7d2e6;
@@ -148,6 +160,9 @@
   --ruk-color-danger: #f87171;
   --ruk-color-danger-hover: #fca5a5;
 
+  --ruk-color-success: #22c55e;
+  --ruk-color-success-hover: #4ade80;
+
   --ruk-color-bg: #0f172a;
   --ruk-color-surface: #1e293b;
   --ruk-color-border: #2d3e5d;
@@ -170,6 +185,9 @@
 
   --ruk-color-danger: #990000;
   --ruk-color-danger-hover: #7a0000;
+
+  --ruk-color-success: #14532d;
+  --ruk-color-success-hover: #052e16;
 
   --ruk-color-bg: #ffffff;
   --ruk-color-surface: #ffffff;
