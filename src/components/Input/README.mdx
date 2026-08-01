@@ -1,0 +1,332 @@
+# Input
+
+## Overview
+
+The Input component allows users to enter or edit a single line of text. It serves as the foundation for collecting information in forms, search fields, authentication flows, and data entry experiences.
+
+Inputs should provide clear labels, helpful guidance, and immediate feedback when appropriate. They should be easy to identify, simple to interact with, and consistent throughout the application.
+
+---
+
+## When to Use
+
+Use an Input when the user needs to enter or edit a single value.
+
+Common use cases include:
+
+* Entering names or titles
+* Email addresses
+* Usernames
+* Phone numbers
+* Search queries
+* IDs or reference numbers
+* Numeric values
+* URLs
+* Short text responses
+
+---
+
+## When Not to Use
+
+Choose another component when it better fits the type of information being collected.
+
+Avoid using an Input for:
+
+* Long-form responses (use a Text Area)
+* Selecting from predefined options (use a Select, Dropdown, Radio Group, or Checkbox)
+* Entering dates or times (use a Date Picker or Time Picker)
+* Numeric values with a limited range (use a Stepper or Slider)
+* Password confirmation or secure entry without masking (use a Password Input)
+* Read-only information that users cannot edit
+
+---
+
+## Best Practices
+
+### Do
+
+* Always provide a visible label.
+* Place labels consistently throughout the application.
+* Clearly indicate required fields with an asterisk. 
+* Use helper text to explain formatting or requirements.
+* Validate input appropriately.
+* Display helpful, actionable error messages below input.
+* Size the input according to the expected content.
+
+### Don't
+
+* Use placeholder text as the only label.
+* Hide important instructions inside placeholder text.
+* Display multiple error messages for a single issue.
+* Interrupt users with validation while they are actively typing unless it improves the experience.
+* Require users to guess the expected format.
+
+---
+
+## Accessibility Standards
+
+Inputs must be accessible to keyboard users, screen reader users, users with low vision, and users with motor impairments.
+
+### Labels
+
+* Every input must have a visible label.
+* Labels must remain visible after the user begins typing.
+* Labels should clearly describe the expected information.
+
+### Keyboard
+
+* Inputs must be reachable using the Tab key.
+* Users must be able to enter and edit text using only the keyboard.
+* Focus indicators must remain visible.
+* Keyboard focus should follow the visual layout.
+
+### Screen Readers
+
+* Inputs must be programmatically associated with their labels.
+* Helper text and error messages should be announced when appropriate.
+* Required fields should be communicated to assistive technology.
+* Validation errors should be announced without requiring users to search for them.
+
+### Color & Contrast
+
+* Text must meet a minimum contrast ratio of **4.5:1**.
+* Borders, focus indicators, and validation states should maintain at least **3:1** contrast against adjacent colors.
+* Never rely solely on color to indicate required fields or validation status.
+
+### Touch Targets
+
+* Interactive controls should provide a minimum target size of **24 × 24 px**, with **44 × 44 px** recommended for touch devices.
+
+### WCAG Compliance
+
+Inputs should meet the requirements of **WCAG 2.2 Level AA**, including:
+
+* Labels or Instructions
+* Error Identification
+* Focus Visible
+* Focus Appearance
+* Name, Role, Value
+* Contrast (Minimum)
+* Use of Color
+* Target Size (Minimum)
+
+---
+
+## Anatomy
+
+An Input may contain the following elements:
+
+1. Label
+2. Required Indicator (optional)
+3. Input Container
+4. User-entered Value
+5. Placeholder (optional)
+6. Leading Icon (optional)
+7. Helper Text (optional)
+8. Validation Message (optional)
+9. Character Counter (optional)
+
+---
+
+## Variants
+
+### Standard
+
+The default single-line text input used for most data entry.
+
+---
+
+
+### Search
+
+Optimized for search experiences and commonly includes a search icon and optional clear button.
+
+---
+
+### Password
+
+Masks entered characters and provides an optional show/hide password control.
+
+---
+
+### Read-only
+
+Displays information that users may copy but cannot modify.
+
+---
+
+### Disabled
+
+Indicates that the field is currently unavailable for interaction.
+
+---
+
+## States
+
+Inputs should support the following states:
+
+* Default
+* Hover
+* Focus
+* Active
+* Disabled
+* Read-only
+* Error
+
+Each state should remain visually distinct and communicate its purpose clearly.
+
+---
+
+## Behavior
+
+Inputs should respond predictably and provide timely feedback.
+
+### Interaction
+
+* Place the cursor at the user's selected insertion point.
+* Preserve entered values during validation.
+* Display helper text before validation errors whenever appropriate.
+* Display validation feedback after user interaction or form submission.
+
+### Responsive Behavior
+
+Inputs should:
+
+* Resize appropriately across screen sizes.
+* Expand to the width of their container unless otherwise specified.
+* Maintain adequate spacing from surrounding content.
+* Support localization and left-to-right (LTR) languages.
+
+---
+
+## Content Guidelines
+
+Labels should describe the requested information rather than the expected format.
+
+### Labels
+
+Good Examples
+
+* First Name
+* Email Address
+* Phone Number
+* Company Name
+* Search Products
+
+Poor Examples
+
+* Enter Text
+* Type Here
+* Input
+* Required
+
+### Placeholder Text
+
+Placeholder text should provide examples rather than instructions.
+
+Good Examples
+
+* [name@example.com](mailto:name@example.com)
+* (555) 123-4567
+* Search products...
+
+Poor Examples
+
+* Enter your email
+* Required
+* Click here
+
+### Helper Text
+
+Helper text should clarify expectations before the user encounters an error.
+
+Examples
+
+* Must contain at least 8 characters.
+* We'll never share your email address.
+* Numbers only.
+
+### Error Messages
+
+Error messages should explain the problem and how to resolve it.
+
+Good Examples
+
+* Enter a valid email address.
+* Password must contain at least 8 characters.
+* This field cannot be empty.
+
+Poor Examples
+
+* Nope!
+* Invalid
+* Incorrect
+
+---
+
+## Design Specifications
+
+The exact values should be defined using design tokens.
+
+TODO: Add Figma designs
+Document:
+
+* Height
+* Width behavior
+* Border radius
+* Typography
+* Label spacing
+* Helper text spacing
+* Validation message spacing
+* Padding
+* Icon size
+* Border width
+* Colors
+* Focus ring styling
+* Motion
+
+---
+
+## Developer Notes
+### Implementation Guidelines
+
+* Associate every input with a `<label>`.
+* Use the correct `type` attribute for the expected data.
+* Support browser autofill when appropriate.
+* Use `autocomplete` attributes to improve the user experience.
+* Preserve user-entered values after validation failures.
+* Avoid preventing standard browser interactions such as copy and paste.
+* Support localization and left-to-right (LTR) layouts.
+
+---
+
+
+## Related Components
+
+* Text Area
+* Form Validation
+* Label
+* Select
+* Combobox
+* Date Picker
+* Time Picker
+* Checkbox
+* Radio Group
+
+---
+
+## Design Checklist
+
+Before publishing a screen, verify that:
+
+* Every input has a visible label.
+* Placeholder text is not used as a label.
+* Required fields include an asterisk next to label.
+* Helper text explains formatting when needed.
+* Error messages are specific and actionable.
+* Validation does not interrupt users unnecessarily.
+* Keyboard navigation works correctly.
+* Focus indicators remain visible.
+* Color contrast requirements are met.
+* Screen readers announce labels, helper text, and errors correctly.
+* Inputs behave consistently across desktop, tablet, and mobile devices.

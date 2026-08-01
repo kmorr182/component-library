@@ -1,0 +1,290 @@
+# Map Marker
+
+## Overview
+
+Map Markers identify specific geographic locations on an interactive map. They help users discover places, assets, events, or points of interest, and often serve as the entry point for additional information or actions.
+
+Markers should be easy to identify at a glance, maintain sufficient contrast against varying map backgrounds, and communicate status through consistent visual styling. The Map Marker shape should remain recognizable across all themes and zoom levels.
+
+---
+
+## When to Use
+
+Use a Map Marker to represent a specific location or object on a map.
+
+---
+
+## When Not to Use
+
+Avoid using a Map Marker when another visualization better communicates the data.
+
+Do not use markers for:
+
+* Large geographic regions (use polygons or boundaries)
+* Routes or navigation paths (use polylines)
+* Heat maps or density visualizations
+* Background decoration
+* Non-location-based information
+* Excessively dense datasets where clustering should be used instead
+
+---
+
+## Best Practices
+
+### Do
+
+* Use a consistent marker shape throughout the application.
+* Keep marker icons simple and recognizable.
+* Cluster markers when many occupy the same geographic area.
+* Display additional information on a Popover triggered by selecting the Map Marker.
+* Ensure selected markers remain visually distinguishable.
+
+### Don't
+
+* Create multiple marker shapes without meaning.
+* Allow markers to overlap until they become unreadable.
+* Place text directly inside markers.
+* Make markers so small that they are difficult to select.
+
+---
+
+## Accessibility Standards
+
+Map interactions should remain usable for users with varying abilities.
+
+### Keyboard
+
+* Markers must be reachable using keyboard navigation when interactive.
+* Users should be able to activate a marker using **Enter** or **Space**.
+* Focus indicators must remain clearly visible.
+* Keyboard navigation should follow a logical order.
+
+### Screen Readers
+
+* Interactive markers must expose an accessible name.
+* Marker status or category should be announced when relevant.
+* Additional information should be available through associated Popovers.
+
+### Color & Contrast
+
+* Marker colors must maintain sufficient contrast against both Light and Dark map themes.
+* Selected and focused markers must remain distinguishable without relying solely on color.
+
+### Touch Targets
+
+* Interactive markers should provide a minimum touch target of **24 × 24 px**, with **44 × 44 px** recommended for touch devices.
+* If the visible marker is smaller than the touch target, increase the invisible hit area.
+
+### WCAG Compliance
+
+Map Markers should support **WCAG 2.2 Level AA**, including:
+
+* Keyboard Accessible
+* Focus Visible
+* Focus Appearance
+* Name, Role, Value
+* Use of Color
+* Contrast (Minimum)
+* Target Size (Minimum)
+
+---
+
+## Anatomy
+
+A Map Marker may contain:
+
+1. Marker Container
+2. Marker Shape
+3. Selection Indicator
+4. Focus Ring
+
+---
+
+## Variants
+
+### Default
+
+Represents a standard location.
+
+---
+
+### Selected
+
+Indicates the currently selected location.
+
+---
+
+### Active
+
+Represents an item currently in use or being tracked.
+
+---
+
+### Disabled
+
+Indicates a location that cannot currently be selected or interacted with.
+
+---
+
+### Cluster
+
+Represents multiple nearby markers using a single aggregated marker displaying the number of grouped locations.
+
+---
+
+## States
+
+Markers should support the following interaction states:
+
+* Default
+* Hover
+* Focus
+* Selected
+* Pressed
+* Disabled
+* Cluster Expanded
+* Loading (optional)
+
+Each state should remain visually distinct across all map styles.
+
+---
+
+## Behavior
+
+Markers should respond consistently to user interaction.
+
+### Interaction
+
+* Selecting a marker should reveal additional information.
+* Only one marker should be selected at a time.
+* Marker animations should be subtle and purposeful.
+* Marker position should remain anchored to its geographic location during zooming and panning.
+* Clusters should expand or zoom appropriately when selected.
+
+### Responsive Behavior
+
+Markers should:
+
+* Scale appropriately across device sizes.
+* Remain selectable on touch devices.
+* Preserve readability while zooming.
+* Prevent excessive overlap through clustering or collision management.
+
+---
+
+## Light & Dark Theme Guidelines
+
+Markers must remain recognizable regardless of map theme.
+
+### Light Mode
+
+* Use darker marker colors against lighter map backgrounds.
+* Ensure outlines remain visible over roads, buildings, and terrain.
+
+### Dark Mode
+
+* Increase contrast between the marker and darker map backgrounds.
+* Use lighter outlines or borders when necessary.
+* Ensure focus indicators remain clearly visible.
+
+### Theme Consistency
+
+* Marker shape should remain identical across themes.
+* Color meaning should never change between Light and Dark Mode.
+
+---
+
+## Content Guidelines
+
+Markers should communicate meaning through recognizable visual patterns.
+
+### Labels
+
+Marker labels should generally appear in Popovers rather than inside the marker itself.
+
+* Keep them concise.
+* Avoid overlapping nearby labels.
+* Hide labels gracefully when space becomes limited.
+
+---
+
+## Design Specifications
+TODO: Add Figma designs
+Document:
+
+* Marker size
+* Icon size
+* Elevation
+* Shadow
+* Focus ring
+* Selection outline
+* Animation duration
+* Cluster sizing
+
+---
+
+## Developer Notes
+
+### Implementation Guidelines
+
+* Anchor markers precisely to geographic coordinates.
+* Use vector graphics for crisp rendering.
+* Support clustering for large datasets.
+* Maintain consistent positioning while zooming and panning.
+* Avoid unnecessary re-rendering during map movement.
+* Expose accessible names for interactive markers.
+* Support localization where marker content contains text.
+
+### Performance Considerations
+
+* Use marker clustering when displaying large numbers of locations.
+* Consider virtualization or canvas rendering for very large datasets.
+* Lazy load detailed Popover content.
+
+---
+
+## Examples
+
+### Good
+
+✔ One marker per location
+✔ Consistent marker shape
+✔ Clear selected state
+✔ Cluster nearby markers
+✔ Use icons to communicate category
+
+---
+
+### Poor
+
+✖ Ten overlapping markers
+✖ Tiny markers difficult to select
+✖ Color-only status indicators
+✖ Decorative marker shapes
+✖ Marker labels covering the map
+
+---
+
+## Related Components
+
+* Interactive Map
+* Popover
+* Search
+* Cluster Marker
+* Route Line
+
+---
+
+## Design Checklist
+
+Before publishing a screen, verify that:
+
+* Marker colors maintain sufficient contrast in both Light and Dark Mode.
+* Interactive markers support keyboard navigation.
+* Screen readers announce marker names and status.
+* Selected markers are visually distinct.
+* Focus indicators remain visible.
+* Marker clustering is used when appropriate.
+* Touch target requirements are met.
+* Marker positions remain accurate while zooming and panning.
+* Marker animations are subtle and purposeful.

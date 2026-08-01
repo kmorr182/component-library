@@ -4,8 +4,14 @@ import './styles/tokens.css'
 export { Button } from './components/Button'
 export type { ButtonProps, ButtonVariant, ButtonSize } from './components/Button'
 
+export { Alert } from './components/Alert'
+export type { AlertProps, AlertVariant } from './components/Alert'
+
 export { Input } from './components/Input'
 export type { InputProps, InputSize } from './components/Input'
+
+export { TextArea } from './components/TextArea'
+export type { TextAreaProps, TextAreaSize } from './components/TextArea'
 
 export { Icon } from './components/Icon'
 export type { IconProps, IconName } from './components/Icon'

@@ -27,7 +27,7 @@ function ThemeSwitcher() {
         <Button
           key={option}
           size="sm"
-          variant={theme === option ? 'primary' : 'secondary'}
+          variant={theme === option ? 'primary' : 'outline'}
           onClick={() => setTheme(option)}
         >
           {option}
@@ -56,7 +56,7 @@ function Showcase() {
       <ThemeSwitcher />
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
         <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
+        <Button variant="outline">Outine</Button>
         <Button variant="danger">Danger</Button>
       </div>
       <Input label="Email" placeholder="you@example.com" />
