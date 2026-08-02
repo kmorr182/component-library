@@ -22,9 +22,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm.cmd
-      - run: npm.cmd ci
-      - run: npm.cmd run build-storybook
+          cache: npm
+      - run: npm ci
+      - run: npm run build-storybook
       - uses: actions/upload-pages-artifact@v3
         with:
           path: storybook-static
