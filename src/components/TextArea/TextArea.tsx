@@ -1,5 +1,5 @@
-import { forwardRef, useId } from 'react'
-import type { TextareaHTMLAttributes } from 'react'
+import { forwardRef, useEffect, useId, useState } from 'react'
+import type { ChangeEvent, TextareaHTMLAttributes } from 'react'
 import styles from './TextArea.module.css'
 
 export type TextAreaSize = 'sm' | 'md' | 'lg'
@@ -15,6 +15,8 @@ export interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElemen
   size?: TextAreaSize
   /** Stretches the field to fill its container's width. */
   fullWidth?: boolean
+  /** Shows a live "n / max" character counter below the field. Requires `maxLength`. */
+  showCharacterCount?: boolean
 }
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -25,9 +27,14 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
       errorText,
       size = 'md',
       fullWidth = false,
+      showCharacterCount = false,
       required,
       id,
       className,
+      maxLength,
+      value,
+      defaultValue,
+      onChange,
       'aria-describedby': ariaDescribedBy,
       ...rest
     },
@@ -37,10 +44,29 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
     const textareaId = id ?? generatedId
     const helperId = `${textareaId}-helper`
     const errorId = `${textareaId}-error`
+    const countId = `${textareaId}-count`
     const hasError = Boolean(errorText)
 
+    const [length, setLength] = useState(() => String(value ?? defaultValue ?? '').length)
+
+    useEffect(() => {
+      if (value !== undefined) setLength(String(value).length)
+    }, [value])
+
+    const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+      setLength(event.target.value.length)
+      onChange?.(event)
+    }
+
+    const showCount = showCharacterCount && maxLength !== undefined
+
     const describedBy =
-      [ariaDescribedBy, hasError ? errorId : undefined, !hasError && helperText ? helperId : undefined]
+      [
+        ariaDescribedBy,
+        hasError ? errorId : undefined,
+        !hasError && helperText ? helperId : undefined,
+        showCount ? countId : undefined,
+      ]
         .filter(Boolean)
         .join(' ') || undefined
 
@@ -61,20 +87,39 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
           id={textareaId}
           className={textareaClassNames}
           required={required}
+          maxLength={maxLength}
+          value={value}
+          defaultValue={defaultValue}
+          onChange={handleChange}
           aria-invalid={hasError || undefined}
           aria-describedby={describedBy}
           {...rest}
         />
-        {hasError ? (
-          <span id={errorId} className={styles.errorText} role="alert">
-            {errorText}
-          </span>
-        ) : (
-          helperText && (
-            <span id={helperId} className={styles.helperText}>
-              {helperText}
-            </span>
-          )
+        {(hasError || helperText || showCount) && (
+          <div className={styles.footer}>
+            {hasError ? (
+              <span id={errorId} className={styles.errorText} role="alert">
+                {errorText}
+              </span>
+            ) : (
+              helperText && (
+                <span id={helperId} className={styles.helperText}>
+                  {helperText}
+                </span>
+              )
+            )}
+            {showCount && (
+              <span
+                id={countId}
+                className={[styles.characterCount, length >= maxLength ? styles.characterCountLimit : '']
+                  .filter(Boolean)
+                  .join(' ')}
+                aria-live="polite"
+              >
+                {length} / {maxLength}
+              </span>
+            )}
+          </div>
         )}
       </div>
     )

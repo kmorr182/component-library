@@ -137,7 +137,10 @@ Indicates a location that cannot currently be selected or interacted with.
 
 ### Cluster
 
-Represents multiple nearby markers using a single aggregated marker displaying the number of grouped locations.
+Pass `count` to render a circular badge showing that number instead of the pin icon, representing multiple
+nearby locations grouped into one marker. `MapMarker` only renders the badge — deciding which markers to
+group, and what happens when the badge is clicked (zoom in, break apart into individual markers, etc.), is
+up to whatever's managing the map.
 
 ---
 
@@ -153,10 +156,11 @@ Markers should support the following interaction states:
 * Selected
 * Pressed
 * Disabled
-* Cluster Expanded
 * Loading (optional)
 
-Each state should remain visually distinct across all map styles.
+Each state should remain visually distinct across all map styles. "Expanding" a cluster (zooming in, breaking
+it apart into individual markers) isn't a state of the marker itself — that behavior lives in whatever's
+managing the map, not in `MapMarker`.
 
 ---
 
@@ -170,7 +174,7 @@ Markers should respond consistently to user interaction.
 * Only one marker should be selected at a time.
 * Marker animations should be subtle and purposeful.
 * Marker position should remain anchored to its geographic location during zooming and panning.
-* Clusters should expand or zoom appropriately when selected.
+* Clicking a cluster badge should expand or zoom appropriately — implemented by the app, not by `MapMarker`.
 
 ### Responsive Behavior
 
@@ -230,7 +234,6 @@ Document:
 * Focus ring
 * Selection outline
 * Animation duration
-* Cluster sizing
 
 ---
 
@@ -281,7 +284,6 @@ Document:
 * Interactive Map
 * Popover
 * Search
-* Cluster Marker
 * Route Line
 
 ---

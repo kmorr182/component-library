@@ -56,3 +56,12 @@ export const FullWidth: Story = {
     </div>
   ),
 }
+
+export const WithCharacterCount: Story = {
+  args: { maxLength: 280, showCharacterCount: true },
+}
+
+export const WithHelperTextAndCharacterCount: Story = {
+  name: 'With helper text and character count',
+  args: { helperText: 'Keep it brief.', maxLength: 280, showCharacterCount: true },
+}

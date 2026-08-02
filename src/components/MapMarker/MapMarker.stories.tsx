@@ -28,6 +28,34 @@ export const Sizes: Story = {
   ),
 }
 
+export const Active: Story = {
+  args: { active: true },
+}
+
+export const Selected: Story = {
+  args: { selected: true },
+}
+
+export const Disabled: Story = {
+  args: { disabled: true },
+}
+
+export const Cluster: Story = {
+  args: { count: 12, label: '12 locations' },
+}
+
+export const AllStates: Story = {
+  render: (args) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
+      <MapMarker {...args} />
+      <MapMarker {...args} active />
+      <MapMarker {...args} selected />
+      <MapMarker {...args} disabled />
+      <MapMarker {...args} count={12} label="12 locations" />
+    </div>
+  ),
+}
+
 export const OnAMap: Story = {
   name: 'On a map (visual context)',
   render: (args) => (

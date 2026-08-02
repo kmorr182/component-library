@@ -14,6 +14,8 @@ export type IconName =
   | 'info'
   | 'check-circle'
   | 'alert-circle'
+  | 'eye'
+  | 'eye-off'
 
 export const iconPaths: Record<IconName, ReactNode> = {
   star: <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14l-5-4.87 6.91-1.01L12 2z" fill="currentColor" stroke="none" />,
@@ -59,6 +61,19 @@ export const iconPaths: Record<IconName, ReactNode> = {
       <circle cx="12" cy="12" r="10" />
       <line x1="12" y1="8" x2="12" y2="12" />
       <line x1="12" y1="16" x2="12.01" y2="16" />
+    </>
+  ),
+  eye: (
+    <>
+      <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" />
+      <circle cx="12" cy="12" r="3" />
+    </>
+  ),
+  'eye-off': (
+    <>
+      <path d="M6.5 6.5C3.8 8.1 2 12 2 12s4 7 10 7c1.8 0 3.4-.5 4.8-1.3" />
+      <path d="M17.5 17.5C20.2 15.9 22 12 22 12s-4-7-10-7c-.6 0-1.2.05-1.8.14" />
+      <line x1="2" y1="2" x2="22" y2="22" />
     </>
   ),
 }

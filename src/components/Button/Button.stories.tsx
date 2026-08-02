@@ -60,3 +60,25 @@ export const Sizes: Story = {
     </div>
   ),
 }
+
+export const WithIcon: Story = {
+  args: { icon: 'search', children: 'Search' },
+}
+
+export const Loading: Story = {
+  args: { loading: true },
+}
+
+export const LoadingWithIcon: Story = {
+  name: 'Loading (with icon, same size)',
+  render: (args) => (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+      <Button {...args} icon="search">
+        Search
+      </Button>
+      <Button {...args} icon="search" loading>
+        Search
+      </Button>
+    </div>
+  ),
+}
