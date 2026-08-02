@@ -70,9 +70,11 @@ export const WhyThisFont: Story = {
       }}
     >
       <p>
-        <strong>Atkinson Hyperlegible Next</strong> is designed by the Braille Institute with legibility as the
-        explicit goal, rather than as a side effect of a decorative style. It's free (SIL Open Font License) and
-        self-hosted in this package — no external font CDN request required.
+       <strong>Atkinson Hyperlegible Next</strong> was chosen as the primary typeface for its outstanding readability and approachable personality. 
+       Originally designed by the Braille Institute with legibility as its primary goal, it helps reinforce the brand's commitment to being clean, trustworthy, accessible, and easy to use. 
+       Its rounded letterforms create a friendly, welcoming feel while maintaining a modern, polished appearance, resulting in a visual voice that feels clear, reliable, and inviting across both digital and print experiences. 
+       As an added benefit, the font is open source under the SIL Open Font License and is self-hosted, eliminating the need for external font requests.
+
       </p>
     </div>
   ),

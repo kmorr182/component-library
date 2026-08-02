@@ -9,7 +9,7 @@ const meta = {
   tags: ['autodocs'],
   args: {
     trigger: <Button>Open popover</Button>,
-    children: <p style={{ margin: 0 }}>This is some popover content.</p>,
+    children: <div>This is some popover content.</div>,
   },
 } satisfies Meta<typeof Popover>
 
