@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     "@storybook/addon-docs",
     "@storybook/addon-mcp"
   ],
+  "staticDirs": ["./public"],
   "framework": "@storybook/react-vite"
 };
 export default config;

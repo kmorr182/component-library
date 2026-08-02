@@ -4,7 +4,6 @@ import { Input } from './Input'
 const meta = {
   title: 'Components/Input',
   component: Input,
-  tags: ['autodocs'],
   args: {
     label: 'Email address',
     placeholder: 'you@example.com',

@@ -6,7 +6,6 @@ import { Popover } from '../Popover/Popover'
 const meta = {
   title: 'Components/MapMarker',
   component: MapMarker,
-  tags: ['autodocs'],
   args: {
     label: 'Downtown Location',
     onClick: fn(),
