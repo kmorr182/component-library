@@ -1,0 +1,369 @@
+import { Meta, Primary, Controls, Stories } from '@storybook/addon-docs/blocks';
+import * as AlertStories from './Alert.stories';
+
+<Meta of={AlertStories} />
+
+# Alert
+
+<Primary />
+
+<Controls />
+
+# Alert
+
+## Overview
+
+The Alert component communicates important information to users about the current state of an application, process, or action. Alerts are designed to bring attention to meaningful updates, confirmations, warnings, or errors without interrupting the user's workflow.
+
+Alerts should be used intentionally and sparingly. They should provide clear, actionable information and help users understand what happened, what it means, and what they may need to do next.
+
+---
+
+## When to Use
+
+Use an Alert when information is important enough to require user awareness but does not require an interruption or blocking action.
+
+Common use cases include:
+
+* Confirming a successful action
+* Communicating important system updates
+* Providing contextual information or guidance
+* Explaining a temporary limitation
+* Warning users about potential issues
+* Informing users about errors or failed actions
+* Sharing changes that affect the user's workflow
+
+Examples:
+
+* "Your profile has been updated successfully."
+* "Scheduled maintenance will occur tonight from 10 PM–12 AM."
+* "Unable to save changes. Please try again."
+
+---
+
+## When Not to Use
+
+Do not use an Alert when another component better communicates the message.
+
+Avoid using Alerts for:
+
+* Field-level validation errors (use inline form validation)
+* Temporary notifications that disappear automatically (use Toast or Notification)
+* Simple instructional text (use Helper Text or supporting content)
+* Non-essential decorative messages
+* Messages that require immediate user decisions (use Modal or Confirmation Dialog)
+* Every user action, as excessive alerts reduce their effectiveness
+
+---
+
+## Best Practices
+
+### Do
+
+* Use clear, concise language.
+* Explain what happened and what the user should do next.
+* Match the alert variant to the meaning of the message.
+* Place alerts near the relevant content or action.
+* Include an icon only when it improves recognition.
+* Allow dismissal only when the information is no longer needed.
+* Ensure dismissed alerts do not remove critical information permanently.
+
+### Don't
+
+* Use color alone to communicate meaning.
+* Display multiple alerts with the same message.
+* Use negative alerts for minor issues.
+* Use positive alerts for neutral information.
+* Make users dismiss alerts required for completing a task.
+* Write vague messages such as "Something went wrong."
+
+---
+
+## Accessibility Standards
+
+Alerts must communicate important information to all users, including those using assistive technologies.
+
+### Screen Readers
+
+* Alerts should use appropriate ARIA roles:
+
+  * `role="alert"` for urgent messages requiring immediate attention.
+  * `role="status"` for non-urgent informational updates.
+* Content should be announced when appropriate.
+* The alert message should have a clear accessible name.
+* Decorative icons should be hidden from assistive technology.
+* Meaningful icons should have appropriate alternative text or accessible labels.
+
+### Keyboard
+
+For dismissible alerts:
+
+* The dismiss button must be keyboard accessible.
+* Users must be able to navigate to the dismiss action using the Tab key.
+* The dismiss button must activate using Enter or Space.
+* Focus order should follow the visual layout.
+
+### Color & Contrast
+
+* Text and icons must maintain a minimum contrast ratio of **4.5:1**.
+* Borders, backgrounds, and interactive elements must maintain sufficient contrast.
+* Alert meaning must not rely solely on color.
+* Icons and text should reinforce the meaning of the alert.
+
+### Focus Management
+
+* Dismissing an alert should not create unexpected focus changes.
+* If an alert appears dynamically, focus should only move when the alert requires immediate attention.
+
+### WCAG Compliance
+
+Alerts should meet **WCAG 2.2 Level AA**, including:
+
+* Status Messages
+* Name, Role, Value
+* Focus Visible
+* Focus Appearance
+* Contrast (Minimum)
+* Use of Color
+* Keyboard Accessible
+
+---
+
+## Anatomy
+
+An Alert may contain the following elements:
+
+1. Alert Container
+2. Icon
+3. Message Content
+4. Supporting Description
+5. Dismiss Button (optional)
+
+---
+
+## Variants
+
+### Positive
+
+Communicates successful outcomes, completed actions, or favorable states.
+
+Use when:
+
+* An action completed successfully.
+* A user should be reassured that something worked.
+* A positive status update is important.
+
+Examples:
+
+* "Your changes have been saved."
+* "Payment successfully processed."
+* "User account created."
+
+Avoid using Positive alerts for routine confirmations that do not require user awareness.
+
+---
+
+### Neutral
+
+Communicates general information, updates, or guidance.
+
+Use when:
+
+* Sharing important information.
+* Providing context.
+* Explaining a system state.
+* Announcing non-critical updates.
+
+Examples:
+
+* "Your session will expire in 10 minutes."
+* "New features are available."
+* "Reports are updated daily."
+
+---
+
+### Negative
+
+Communicates errors, failures, or situations requiring attention.
+
+Use when:
+
+* An action failed.
+* The user needs to correct something.
+* The system cannot complete a requested operation.
+
+Examples:
+
+* "Unable to upload file."
+* "Your payment could not be processed."
+* "Changes could not be saved."
+
+Avoid using Negative alerts for situations that are informational or expected.
+
+---
+
+## Optional Properties
+
+### Icon
+
+Icons should be used to support the message meaning.
+
+Use icons that make sense for each variant:
+
+* Checkmark icon for `positive` variant
+* Info icon for `neutral` variant
+* Alert icon for `negative` variant
+
+
+Icons should supplement, not replace, clear messaging.
+
+---
+
+### Dismissible
+
+Alerts may optionally include a dismiss action.
+
+Use dismissible alerts when:
+
+* The information is helpful but temporary.
+* The user can safely remove the message.
+* The alert does not contain critical information.
+
+Do not make alerts dismissible when:
+
+* The user must understand the information before continuing.
+* Dismissing the alert could result in data loss or confusion.
+* The message is required for task completion.
+
+---
+
+## States
+
+Alerts should support the following states:
+
+* Default
+* Dismissible
+* Dismissed
+* Dynamic/Announced
+
+---
+
+## Behavior
+
+### Interaction
+
+* Alerts should appear without disrupting the user's current task.
+* Dismiss actions should remove the alert from view immediately.
+* Dismissed alerts should not reappear unnecessarily during the same session.
+* Dynamic alerts should be announced appropriately to assistive technologies.
+
+### Responsive Behavior
+
+Alerts should:
+
+* Resize based on content length.
+* Support multiline messages.
+* Maintain readable spacing on smaller screens.
+* Ensure dismiss buttons remain easy to access.
+* Support localization and longer translated content.
+
+---
+
+## Content Guidelines
+
+Alert messages should be clear, specific, and actionable.
+
+### Message Structure
+
+Whenever possible:
+
+**What happened + What it means + What to do next**
+
+Examples:
+
+Good:
+
+* "Your password was updated successfully."
+* "Unable to save your changes. Check your connection and try again."
+* "Your session expires in 10 minutes. Save your work before continuing."
+
+Poor:
+
+* "Success!"
+* "Error occurred."
+* "Invalid action."
+
+---
+
+## Design Specifications
+
+The exact values should be defined using design tokens.
+
+Document:
+// TODO: Add Figma designs
+
+* Height
+* Padding
+* Border radius
+* Typography
+* Icon size
+* Icon spacing
+* Dismiss button size
+* Color options
+* Border styling
+* Background styling
+* Focus ring styling
+* Animation behavior
+
+---
+
+## Developer Notes
+
+### Implementation Guidelines
+
+* Use semantic ARIA roles based on urgency.
+* Ensure alert content is available to screen readers.
+* Do not rely only on color for meaning.
+* Provide accessible labels for dismiss buttons.
+* Support keyboard navigation.
+* Preserve layout when alerts appear or disappear.
+* Ensure alerts support localization.
+
+### Dismiss Button
+
+The dismiss control should:
+
+* Have an accessible label such as "Dismiss alert."
+* Use a native button element.
+* Remain visible and keyboard accessible.
+* Not be the only method for accessing important information.
+
+---
+
+## Related Components
+
+* Toast / Notification
+* Banner
+* Modal
+* Confirmation Dialog
+* Inline Validation
+* Helper Text
+* Tooltip
+
+---
+
+## Design Checklist
+
+Before publishing a screen, verify that:
+
+* The correct alert variant is used.
+* The message is clear and actionable.
+* Color is not the only communication method.
+* Icons are meaningful and optional.
+* Dismiss behavior is appropriate.
+* Alerts are not overused.
+* Keyboard users can access dismiss controls.
+* Screen readers announce alerts appropriately.
+* Contrast requirements are met.
+* Alerts work correctly in Light and Dark Mode.
+* Content remains readable with localization.

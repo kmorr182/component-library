@@ -1,8 +1,8 @@
 .button {
+  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: var(--ruk-spacing-2);
   font-family: var(--ruk-font-family);
   font-weight: 600;
   line-height: 1;
@@ -16,6 +16,47 @@
     color var(--ruk-transition-fast);
 }
 
+.content {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ruk-spacing-2);
+}
+
+.loading .content {
+  visibility: hidden;
+}
+
+.loading {
+  background-image: linear-gradient(90deg, transparent, color-mix(in srgb, white 35%, transparent), transparent);
+  background-size: 200% 100%;
+  background-repeat: no-repeat;
+  animation: ruk-button-shimmer 1.6s ease-in-out infinite;
+}
+
+@keyframes ruk-button-shimmer {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading {
+    animation: none;
+    background-image: none;
+  }
+}
+
+.spinner {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .button:focus-visible {
   outline: none;
   box-shadow: 0 0 0 var(--ruk-focus-ring-width, 3px) var(--ruk-color-focus-ring);
@@ -26,6 +67,11 @@
   background-color: var(--ruk-color-disabled-bg);
   border-color: var(--ruk-color-disabled-bg);
   color: var(--ruk-color-disabled-text);
+}
+
+/* While loading, the border would otherwise blend into the disabled background above. */
+.button.loading {
+  border-color: var(--ruk-color-border);
 }
 
 /* Sizes */

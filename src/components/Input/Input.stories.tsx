@@ -46,3 +46,19 @@ export const Sizes: Story = {
     </div>
   ),
 }
+
+export const Search: Story = {
+  args: { type: 'search', label: 'Search', placeholder: 'Search products...', defaultValue: 'sneakers' },
+}
+
+export const Password: Story = {
+  args: { type: 'password', label: 'Password', defaultValue: 'hunter2' },
+}
+
+export const ReadOnly: Story = {
+  args: { readOnly: true, defaultValue: 'you@example.com' },
+}
+
+export const WithIcon: Story = {
+  args: { icon: 'info', label: 'Reference number' },
+}

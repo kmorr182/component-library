@@ -16,7 +16,30 @@
   margin-left: 2px;
 }
 
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.containerSm {
+  --ruk-input-icon-size: 14px;
+  --ruk-input-inline-padding: var(--ruk-spacing-2);
+}
+
+.containerMd {
+  --ruk-input-icon-size: 16px;
+  --ruk-input-inline-padding: var(--ruk-spacing-3);
+}
+
+.containerLg {
+  --ruk-input-icon-size: 18px;
+  --ruk-input-inline-padding: var(--ruk-spacing-4);
+}
+
 .input {
+  flex: 1;
+  min-width: 0;
   border: 1px solid var(--ruk-color-border);
   border-radius: var(--ruk-radius-pill);
   background-color: var(--ruk-color-bg);
@@ -47,6 +70,11 @@
   color: var(--ruk-color-disabled-text);
 }
 
+.input:read-only {
+  cursor: default;
+  background-color: var(--ruk-color-surface);
+}
+
 .sm {
   height: 32px;
   padding: 0 var(--ruk-spacing-2);
@@ -63,6 +91,48 @@
   height: 48px;
   padding: 0 var(--ruk-spacing-4);
   font-size: var(--ruk-font-size-lg);
+}
+
+.hasLeadingIcon {
+  padding-left: calc(var(--ruk-input-inline-padding) + var(--ruk-input-icon-size) + var(--ruk-spacing-2));
+}
+
+.hasTrailingAction {
+  padding-right: calc(var(--ruk-input-inline-padding) + var(--ruk-input-icon-size) + var(--ruk-spacing-2));
+}
+
+.leadingIcon {
+  position: absolute;
+  left: var(--ruk-input-inline-padding);
+  color: var(--ruk-color-text-muted);
+  pointer-events: none;
+}
+
+.trailingAction {
+  position: absolute;
+  right: calc(var(--ruk-input-inline-padding) - 4px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  border: none;
+  border-radius: var(--ruk-radius-sm);
+  background: transparent;
+  color: var(--ruk-color-text-muted);
+  cursor: pointer;
+  transition:
+    background-color var(--ruk-transition-fast),
+    color var(--ruk-transition-fast);
+}
+
+.trailingAction:hover {
+  color: var(--ruk-color-text);
+  background-color: var(--ruk-color-surface);
+}
+
+.trailingAction:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 var(--ruk-focus-ring-width, 3px) var(--ruk-color-focus-ring);
 }
 
 .error {
