@@ -20,6 +20,16 @@ export interface PopoverProps {
   /** Called when the trigger is clicked, or the popover is dismissed via outside click / Escape. */
   onOpenChange?: (open: boolean) => void
   className?: string
+  /** This is a fix for using Popover within a Google map, since the default document.body
+   * default makes the popover pop up behind the map view.
+   *  
+   * Portals the popover content here instead of `document.body`, and keeps it within this
+   * element's bounds instead of the viewport's — e.g. to nest it inside a themed subtree, or any
+   * other container its CSS custom properties (or clipping) shouldn't escape. Must itself be (or
+   * have an ancestor that's) `position: relative/absolute/fixed/sticky`, since that's what the
+   * content's `position: absolute` resolves against. @default document.body
+   */
+  container?: Element
 }
 
 interface Position {
@@ -27,17 +37,17 @@ interface Position {
   left: number
 }
 
-/** Picks whichever side of the trigger has the most room in the viewport, then positions the
- * popover there (in page coordinates), clamped so it never runs off the viewport edges. */
-function computePosition(triggerRect: DOMRect, contentRect: DOMRect): Position {
-  const viewportWidth = window.innerWidth
-  const viewportHeight = window.innerHeight
-
+/** Picks whichever side of the trigger has the most room within `boundsRect`, then positions the
+ * popover there, clamped so it never runs past `boundsRect`'s edges. `relativeToBounds` controls
+ * whether the result is expressed relative to `boundsRect`'s own top-left (for a custom
+ * `container`, which is itself the positioning context) or as page coordinates (for the default
+ * `document.body` portal, where position: absolute resolves against the whole scrollable page). */
+function computePosition(triggerRect: DOMRect, contentRect: DOMRect, boundsRect: DOMRect, relativeToBounds: boolean): Position {
   const space: Record<Placement, number> = {
-    top: triggerRect.top,
-    bottom: viewportHeight - triggerRect.bottom,
-    left: triggerRect.left,
-    right: viewportWidth - triggerRect.right,
+    top: triggerRect.top - boundsRect.top,
+    bottom: boundsRect.bottom - triggerRect.bottom,
+    left: triggerRect.left - boundsRect.left,
+    right: boundsRect.right - triggerRect.right,
   }
 
   const placement = (Object.keys(space) as Placement[]).reduce((best, candidate) =>
@@ -55,13 +65,16 @@ function computePosition(triggerRect: DOMRect, contentRect: DOMRect): Position {
     top = triggerRect.top + triggerRect.height / 2 - contentRect.height / 2
   }
 
-  left = Math.max(GAP, Math.min(left, viewportWidth - contentRect.width - GAP))
-  top = Math.max(GAP, Math.min(top, viewportHeight - contentRect.height - GAP))
+  left = Math.max(boundsRect.left + GAP, Math.min(left, boundsRect.right - contentRect.width - GAP))
+  top = Math.max(boundsRect.top + GAP, Math.min(top, boundsRect.bottom - contentRect.height - GAP))
 
+  if (relativeToBounds) {
+    return { top: top - boundsRect.top, left: left - boundsRect.left }
+  }
   return { top: top + window.scrollY, left: left + window.scrollX }
 }
 
-export function Popover({ trigger, children, open, defaultOpen = false, onOpenChange, className }: PopoverProps) {
+export function Popover({ trigger, children, open, defaultOpen = false, onOpenChange, className, container }: PopoverProps) {
   const [internalOpen, setInternalOpen] = useState(defaultOpen)
   const isControlled = open !== undefined
   const isOpen = isControlled ? open : internalOpen
@@ -92,8 +105,18 @@ export function Popover({ trigger, children, open, defaultOpen = false, onOpenCh
       setPosition(null)
       return
     }
-    setPosition(computePosition(triggerRef.current.getBoundingClientRect(), contentRef.current.getBoundingClientRect()))
-  }, [isOpen])
+    const boundsRect = container
+      ? container.getBoundingClientRect()
+      : new DOMRect(0, 0, window.innerWidth, window.innerHeight)
+    setPosition(
+      computePosition(
+        triggerRef.current.getBoundingClientRect(),
+        contentRef.current.getBoundingClientRect(),
+        boundsRect,
+        Boolean(container),
+      ),
+    )
+  }, [isOpen, container])
 
   useEffect(() => {
     if (!isOpen) return
@@ -151,7 +174,7 @@ export function Popover({ trigger, children, open, defaultOpen = false, onOpenCh
           >
             {children}
           </div>,
-          document.body,
+          container ?? document.body,
         )}
     </div>
   )
