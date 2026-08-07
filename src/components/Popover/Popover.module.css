@@ -5,6 +5,9 @@
 
 .content {
   position: absolute;
+  /* A custom `container` may sit in a pointer-events: none overlay (so it doesn't block clicks
+     over the rest of that overlay) — this keeps the popover itself clickable regardless. */
+  pointer-events: auto;
   z-index: 1000;
   min-width: 200px;
   max-width: 320px;
