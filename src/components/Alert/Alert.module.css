@@ -4,7 +4,7 @@
   gap: var(--ruk-spacing-2);
   padding: var(--ruk-spacing-3) var(--ruk-spacing-4);
   border: 1px solid var(--ruk-color-border);
-  border-radius: var(--ruk-radius-md);
+  border-radius: var(--ruk-radius-sm);
   background-color: var(--ruk-color-surface);
   color: var(--ruk-color-text);
   font-family: var(--ruk-font-family);

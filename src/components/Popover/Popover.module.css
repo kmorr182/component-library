@@ -9,7 +9,7 @@
   min-width: 200px;
   max-width: 320px;
   padding: var(--ruk-spacing-3);
-  border-radius: var(--ruk-radius-md);
+  border-radius: var(--ruk-radius-sm);
   background-color: var(--ruk-color-bg);
   border: 1px solid var(--ruk-color-border);
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.16);

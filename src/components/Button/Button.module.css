@@ -6,7 +6,7 @@
   font-family: var(--ruk-font-family);
   font-weight: 600;
   line-height: 1;
-  border-radius: var(--ruk-radius-pill);
+  border-radius: var(--ruk-radius-sm);
   border: 1px solid transparent;
   cursor: pointer;
   white-space: nowrap;
