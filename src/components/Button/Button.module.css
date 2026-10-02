@@ -49,6 +49,11 @@
   }
 }
 
+[data-ruk-motion='reduce'] .loading {
+  animation: none;
+  background-image: none;
+}
+
 .spinner {
   position: absolute;
   inset: 0;

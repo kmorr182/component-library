@@ -27,7 +27,7 @@
   min-width: 0;
   appearance: none;
   border: 1px solid var(--ruk-color-border);
-  border-radius: var(--ruk-radius-pill);
+  border-radius: var(--ruk-radius-sm);
   background-color: var(--ruk-color-bg);
   color: var(--ruk-color-text);
   font-family: inherit;

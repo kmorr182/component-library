@@ -35,3 +35,8 @@
     background-image: none;
   }
 }
+
+[data-ruk-motion='reduce'] .skeleton {
+  animation: none;
+  background-image: none;
+}

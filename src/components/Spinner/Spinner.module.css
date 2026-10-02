@@ -51,6 +51,17 @@
   }
 }
 
+[data-ruk-motion='reduce'] .spinPlain {
+  animation-duration: 4.8s;
+}
+[data-ruk-motion='reduce'] .spinSand {
+  animation-duration: 10s;
+}
+[data-ruk-motion='reduce'] .sandTop,
+[data-ruk-motion='reduce'] .sandBottom {
+  animation-duration: 10s;
+}
+
 .glassSolid {
   fill: currentColor;
 }

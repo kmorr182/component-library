@@ -50,6 +50,19 @@ const preview: Preview = {
         dynamicTitle: true,
       },
     },
+
+    motion: {
+      description: 'Preview components as if the OS-level "reduce motion" setting were on',
+      toolbar: {
+        title: 'Motion',
+        icon: 'accessibility',
+        items: [
+          { value: 'no-preference', icon: 'play', title: 'Motion: no preference' },
+          { value: 'reduce', icon: 'stop', title: 'Motion: reduce' },
+        ],
+        dynamicTitle: true,
+      },
+    },
   },
 
   decorators: [
@@ -62,6 +75,7 @@ const preview: Preview = {
       return (
         <ThemeProvider theme={context.globals.theme as Theme} storageKey={false}>
           <div
+            data-ruk-motion={context.globals.motion === 'reduce' ? 'reduce' : undefined}
             style={{
               minHeight: isDocs ? undefined : '100vh',
               padding: 16,
